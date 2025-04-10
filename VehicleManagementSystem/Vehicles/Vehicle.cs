@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VehicleManagementSystem
+﻿namespace VehicleManagementSystem.Vehicles
 {
-    internal class Vehicle
+    internal abstract class Vehicle
     {
         private string brand;
         private string model;
@@ -54,6 +48,8 @@ namespace VehicleManagementSystem
             }
         }
 
+        public Vehicle() { }
+
         public Vehicle(string brand, string model, int year, double weight)
         {
             Brand = brand;
@@ -70,5 +66,8 @@ namespace VehicleManagementSystem
             else
                 throw new ArgumentException($"{value} must be between 2 and 20 symbols");
         }
+
+        public abstract string StartEngine();
+        public abstract string Stats();
     }
 }
