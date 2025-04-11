@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using VehicleManagementSystem.Vehicles;
 
 namespace VehicleManagementSystem;
@@ -7,7 +8,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        VehicleHandler handler = new VehicleHandler();
+        VehicleHandler handler = new();
         try
         {
             Vehicle bmw = new Car("BMW", "330E", 2024, 1250, 3);
@@ -22,6 +23,7 @@ internal class Program
 
             handler.UpdateVehicle(bmw);
         }
+
         catch (Exception e)
         {
             throw new ArgumentException(e.Message);
@@ -29,7 +31,7 @@ internal class Program
 
         foreach (Vehicle vehicle in handler.GetVehicles())
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
             stringBuilder.Append($"Brand: {vehicle.Brand}\n" +
                 $"Model: {vehicle.Model}\n" +
                 $"Year: {vehicle.Year}\n" +
@@ -45,10 +47,22 @@ internal class Program
         }
 
         List<SystemError> errors = [new EngineFailureError(), new BrakeFailureError(), new TransmissionError()];
-
         foreach (SystemError error in errors)
         {
             Console.WriteLine($"{error.ErrorMessage()}");
         }
+
+        // frågor och svar
+        // Vad händer om du försöker lägga till en Car i en lista av Motorcycle?
+        // Kompiler error, kan ej konvertera typen av objekt.
+
+        // Vilken typ bör en lista vara för att rymma alla fordonstyper ?
+        // Vehicle, då alla fordonstyper ärver av Vehicle.
+
+        // Kommer du åt metoden Clean() från en lista med typen List<Vehicle>?
+        // Ja, men endast om objektet ärver av mitt ICleanable interface.
+
+        // Vad är fördelarna med att använda ett interface här istället för arv?
+        // Jag vet inte, jag tror min lösning inte löser problemet på rätt sätt.
     }
 }

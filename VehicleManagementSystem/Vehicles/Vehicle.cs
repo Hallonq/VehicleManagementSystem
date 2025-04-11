@@ -6,7 +6,6 @@
         private string model;
         private int year;
         private double weight;
-
         public string Brand
         {
             get { return brand; }
@@ -47,8 +46,6 @@
                     throw new ArgumentException($"{value} must be positive");
             }
         }
-
-        public Vehicle() { }
 
         public Vehicle(string brand, string model, int year, double weight)
         {

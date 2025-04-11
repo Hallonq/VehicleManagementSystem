@@ -2,7 +2,8 @@
 {
     internal class VehicleHandler
     {
-        List<Vehicle> _vehicles = new List<Vehicle>();
+        private List<Vehicle> _vehicles = new();
+
         public void CreateVehicle(Vehicle vehicle)
         {
             _vehicles.Add(vehicle);

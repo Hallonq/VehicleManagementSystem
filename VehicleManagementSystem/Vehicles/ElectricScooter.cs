@@ -2,7 +2,7 @@
 {
     internal class ElectricScooter : Vehicle
     {
-        public double BatteryCapacity { get; set; }
+        public double BatteryCapacity { get; private set; }
 
         public ElectricScooter(string brand, string model, int year, double weight, double batteryCapacity) : base(brand, model, year, weight)
         {

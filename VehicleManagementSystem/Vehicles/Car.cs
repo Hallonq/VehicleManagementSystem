@@ -6,7 +6,7 @@
         public int WindowsDown
         {
             get { return windowsDown; }
-            set
+            private set
             {
                 if (value > 0 && value <= 4)
                 {
